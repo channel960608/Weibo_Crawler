@@ -7,3 +7,4 @@ weibo_crawler/weibo_crawler/spiders/__pycache__/
 weibo_crawler/weibo_crawler/spiders/*.pyc
 weibo_crawler/weibo_crawler/*.pyc
 weibo_crawler/weibo_crawler/settings.py
+weibo_crawler/.*/
