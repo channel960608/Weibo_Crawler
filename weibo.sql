@@ -53,3 +53,30 @@ CREATE TABLE `weibo_content` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 SET FOREIGN_KEY_CHECKS = 1;
+
+-- ----------------------------
+--  Table structure for `fans`
+-- ----------------------------
+DROP TABLE IF EXISTS `fans`;
+CREATE TABLE `fans` (
+  `id` varchar(10) NOT NULL,
+  `nickname` varchar(200) NOT NULL,
+  `profile_image_url` varchar(200) NOT NULL,
+  `profile_url` varchar(200) NOT NULL,
+  `statuses_count` varchar(200) DEFAULT NULL,
+  `verified` tinyint(4) NOT NULL,
+  `verified_type` tinyint(4) NOT NULL,
+  `close_blue_v` tinyint(4) DEFAULT NULL,
+  `description` varchar(200) NOT NULL,
+  `gender` varchar(4) DEFAULT NULL,
+  `urank` varchar(255) DEFAULT NULL,
+  `mbtype` tinyint(4) NOT NULL,
+  `followers_count` int(11) NOT NULL,
+  `follow_count` int(11) NOT NULL,
+  `cover_image_phone` varchar(200) NOT NULL,
+  `desc1` varchar(255) DEFAULT NULL,
+  `desc2` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+SET FOREIGN_KEY_CHECKS = 1;
