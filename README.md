@@ -5,6 +5,13 @@
 获取用户之后就可以实现全站的微博数据爬取
 目前正准备通过Scrapy+Redis框架实现分布式的爬取以及存储
 
+### Requirements  
+- Python 3.*  
+    需要自行安装  
+- Scrapy 1.5  
+    安装python之后，可以通过__pip__安装
+    __pip install Scrapy__  
+    
 #### 2018年11月5日更新  
 基于之前项目已经实现的功能进行了拓展，已经实现的功能如下：  
 - 根据用户名搜索用户的id __user_search_spider__  
