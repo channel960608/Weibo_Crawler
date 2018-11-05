@@ -1,0 +1,9 @@
+weibo_crawler/weibo_crawler/__pycache__/settings.cpython-36.pyc
+weibo_crawler/weibo_crawler/spiders/__pycache__/weibo_content_spider.cpython-36.pyc
+weibo_crawler/weibo_crawler/__pycache__/settings.cpython-36.pyc
+.DS_Store
+weibo_crawler/weibo_crawler/__pycache__/
+weibo_crawler/weibo_crawler/spiders/__pycache__/
+weibo_crawler/weibo_crawler/spiders/*.pyc
+weibo_crawler/weibo_crawler/*.pyc
+weibo_crawler/weibo_crawler/settings.py
