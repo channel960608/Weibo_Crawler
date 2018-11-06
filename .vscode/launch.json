@@ -8,11 +8,11 @@
             "name": "Scrapy",
             "type": "python",
             "request": "launch",
-            "program": "/Users/channel/work/Projects/WeiboCrawler_caspar/weibo_crawler/",
+            "cwd": "${workspaceFolder}/weibo_crawler/",
             "module": "scrapy",
             "args": [
                 "crawl",
-                "user_search_spider",
+                "crawler_all_users",
                 "-o",
                 "bikes.json"
             ]
