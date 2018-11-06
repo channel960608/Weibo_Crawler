@@ -9,7 +9,7 @@
 - Python 3.*  
     需要自行安装  
 - Scrapy 1.5  
-    安装python之后，可以通过__pip__安装
+    安装python之后，可以通过 __pip__ 安装
     __pip install Scrapy__  
     
 #### 2018年11月5日更新  

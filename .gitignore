@@ -9,3 +9,6 @@ weibo_crawler/weibo_crawler/*.pyc
 weibo_crawler/weibo_crawler/settings.py
 weibo_crawler/.*/
 weibo_crawler/weibo_crawler/message/
+weibo_crawler/bikes.json
+message/
+data/
