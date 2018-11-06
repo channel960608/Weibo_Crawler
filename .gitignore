@@ -12,3 +12,5 @@ weibo_crawler/weibo_crawler/message/
 weibo_crawler/bikes.json
 message/
 data/
+.idea/
+.vscode/
