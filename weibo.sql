@@ -54,8 +54,6 @@ CREATE TABLE `weibo_content` (
 
 SET FOREIGN_KEY_CHECKS = 1;
 
-<<<<<<< HEAD
-=======
 -- ----------------------------
 --  Table structure for `fans`
 -- ----------------------------
@@ -82,4 +80,3 @@ CREATE TABLE `fans` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 SET FOREIGN_KEY_CHECKS = 1;
->>>>>>> 47e9872ab86f22024525f6ee4842611401e3974a
