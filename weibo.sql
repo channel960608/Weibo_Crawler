@@ -65,7 +65,7 @@ CREATE TABLE `fans` (
   `profile_url` varchar(200) NOT NULL,
   `statuses_count` varchar(200) DEFAULT NULL,
   `verified` tinyint(4) NOT NULL,
-  `verified_type` tinyint(4) NOT NULL,
+  `verified_type` int(11) NOT NULL,
   `close_blue_v` tinyint(4) DEFAULT NULL,
   `description` varchar(200) NOT NULL,
   `gender` varchar(4) DEFAULT NULL,
@@ -76,6 +76,7 @@ CREATE TABLE `fans` (
   `cover_image_phone` varchar(200) NOT NULL,
   `desc1` varchar(255) DEFAULT NULL,
   `desc2` varchar(255) DEFAULT NULL,
+  `time` timestamp(0) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

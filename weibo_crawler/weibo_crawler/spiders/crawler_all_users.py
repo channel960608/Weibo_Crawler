@@ -5,6 +5,7 @@ import json
 import random
 import time
 import logging
+import datetime
 
 # from ..items import BasicInfoItem
 
@@ -160,7 +161,7 @@ class UserSpider(scrapy.Spider):
             # print(fans_url)
             index = 1
             next_url = fans_url + str(index)
-            yield scrapy.Request(next_url, headers = self.basicInfo_headers,callback=self.get_fans, meta={"fans_url":fans_url, "index":index}, dont_filter = True)
+            yield scrapy.Request(next_url, headers = self.basicInfo_headers,callback=self.get_fans, meta={"fans_url":fans_url, "index":index})
  
 
         
@@ -186,8 +187,8 @@ class UserSpider(scrapy.Spider):
                         if "user" in card:
                             user = card["user"]
                             id = user["id"]
-                            print(id)
-                            print(user)
+                            # print(id)
+                            # print(user)
                             item = FansItem()
                             try:
                                 item["id"] = user["id"]
@@ -225,9 +226,13 @@ class UserSpider(scrapy.Spider):
                                     item["desc1"] = user["desc1"]
                                 if not user["desc2"] is None:
                                     item["desc2"] = user["desc2"]
+                                # item["time"] = time.time()
+                                now = datetime.datetime.now()
+                                now = now.strftime("%Y-%m-%d %H:%M:%S")
+                                item["time"] = now
                                 yield item
-                            except:
-                                logger.err(user)
+                            except Exception as e:
+                                logger.err(e)
                                 pass
                                 
                             
@@ -237,7 +242,7 @@ class UserSpider(scrapy.Spider):
                 else:
                     pass
             # cards = json_object["data"]["cards"][1]
-            yield scrapy.Request(fans_url + str(index), headers = self.basicInfo_headers,callback=self.get_fans, meta={"fans_url":fans_url, "index":index}, dont_filter = True)
+            yield scrapy.Request(fans_url + str(index), headers = self.basicInfo_headers,callback=self.get_fans, meta={"fans_url":fans_url, "index":index})
             
         else:
             pass

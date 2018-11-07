@@ -66,6 +66,7 @@ class FansItem(scrapy.Item):
 	cover_image_phone = scrapy.Field()			
 	desc1 = scrapy.Field()		
 	desc2 = scrapy.Field()
+	time = scrapy.Field()
 
 	def get(self, key):
 		if key in self.keys():

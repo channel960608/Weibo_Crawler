@@ -10,8 +10,11 @@ weibo_crawler/weibo_crawler/settings.py
 weibo_crawler/.*/
 weibo_crawler/weibo_crawler/message/
 weibo_crawler/bikes.json
-message/
-data/
 .idea/
 .vscode/
 weibo_crawler/bikes.json
+weibo_crawler/.vscode/
+weibo_crawler/68个用户/
+weibo_crawler/data/
+weibo_crawler/test/
+weibo_crawler/message/

@@ -13,8 +13,7 @@
             "args": [
                 "crawl",
                 "crawler_all_users",
-                "-o",
-                "bikes.json"
+                
             ]
         },
         {
