@@ -42,7 +42,7 @@ class WeiboFansSpiderSpider(WeiboBaseSpider):
         for userid in ids:
             self.current_user = re.sub("\\n", "",userid)
 
-            homepage = "https://m.weibo.cn/u/" + "%s"%self.current_user
+            # homepage = "https://m.weibo.cn/u/" + "%s"%self.current_user
             #这里最好用随机数
             time.sleep(1)
 

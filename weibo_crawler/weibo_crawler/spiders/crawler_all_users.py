@@ -85,7 +85,11 @@ class UserSpider(WeiboBaseSpider):
                     for card in group["card_group"]:
                         if "user" in card:
                             user = card["user"]
+<<<<<<< HEAD
                             # id = user["id"]
+=======
+#                           # id = user["id"]
+>>>>>>> 8f48dc7b94cc0cdbc2a65a8d304e6063701d9d40
                             # print(id)
                             # print(user)
                             item = FansItem()
