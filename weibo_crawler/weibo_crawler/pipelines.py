@@ -23,12 +23,9 @@ import logging
 from .items import BasicInfoItem, WeiboContentItem, FansItem
 import time
 import datetime
-
 import json
 import codecs
-import time
 import random
-from twisted.enterprise import adbapi
 
 logger = logging.getLogger('mycustomlogger')
 
@@ -38,6 +35,9 @@ class WeiboCrawlerPipeline(object):
 
     @classmethod
     def from_settings(cls, settings):
+        # cls.password = settings['WEIBO_PASSWORD']
+        # cls.username = settings['WEIBO_USERNAME'] 
+ 
         dbargs = dict(
             host=settings['MYSQL_HOST'],
             db=settings['MYSQL_DBNAME'],

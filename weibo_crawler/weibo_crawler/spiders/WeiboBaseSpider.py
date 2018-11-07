@@ -9,12 +9,19 @@ from ..items import WeiboContentItem
 import requests
 import random
 import re
-
+from scrapy.exceptions import NotConfigured
 import importlib,sys
 importlib.reload(sys)
+from scrapy.utils.project import get_project_settings
 # sys.setdefaultencoding('utf8')
 
 class WeiboBaseSpider(scrapy.Spider):
+
+    def __init__(self):
+        settings = get_project_settings()
+        self.post_data['username'] = settings.get('WEIBO_USERNAME')
+        self.post_data['password'] = settings.get('WEIBO_PASSWORD')
+
     # allowed_domains = ["m.weibo.cn"]
     start_urls = ['http://m.weibo.cn/']
 
@@ -69,12 +76,19 @@ class WeiboBaseSpider(scrapy.Spider):
     login_url = 'https://passport.weibo.cn/sso/login'
 
 
+
+
     def login(self):
+        
         session = requests.session()
         # username = input('请输入用户名:\n')
         # password = input('请输入密码：\n')
-        self.post_data['username'] = "15071300838"
-        self.post_data['password'] = "fengqingduo"
+        # self.post_data['username'] = "15071300838"
+        # self.post_data['password'] = "fengqingduo"
+        # self.post_data['username'] = self
+        
+
+
         r = session.post(self.login_url, data=self.post_data, headers=self.login_headers)
         if r.status_code != 200:
             raise Exception('Remote server did not response')

@@ -100,7 +100,7 @@ class WeiboFansSpiderSpider(WeiboBaseSpider):
         #通过注册日期判断用户是否存在
         #判断获得的数据是否为空
         if datas:
-            judge_data = datas[0]["card_group"]
+            # judge_data = datas[0]["card_group"]
 
             isUser = True
 
@@ -183,7 +183,7 @@ class WeiboFansSpiderSpider(WeiboBaseSpider):
             item["follow"] = data_json["data"]["userInfo"]["follow_count"]
             item["followers"] = data_json["data"]["userInfo"]["followers_count"]
             item["gender"] = data_json["data"]["userInfo"]["gender"]
-            fans_scheme = data_json["data"]["fans_scheme"]
-            follow_scheme = data_json["data"]["follow_scheme"]
+            # fans_scheme = data_json["data"]["fans_scheme"]
+            # follow_scheme = data_json["data"]["follow_scheme"]
             # self.current_user.remove(item["ID"])
             return item

@@ -25,11 +25,7 @@ class WeiboContentSpiderSpider(WeiboBaseSpider):
 
     def start_requests(self):
         self.login()
-        # for start_user in self.start_users:
-        # 	weibo_page = "https://m.weibo.cn/api/container/getIndex?from[]=feed&from[]=feed&loc[]=nickname&loc[]=nickname&is_hot[]=1&is_hot[]=1&jumpfrom=weibocom&type=uid&value=%010d&containerid=107603%010d&page=1"%(start_user, start_user)
-        # 	yield scrapy.Request(weibo_page,headers = self.basicInfo_headers, callback= self.parse_weibo, meta={"id":start_user})
-        
-        f = open('crawl_user.txt')
+        f = open('data/crawl_user.txt')
         ids = f.readlines()
         for start_user in ids:
             start_user = re.sub("\\n", "",start_user)

@@ -23,24 +23,24 @@ importlib.reload(sys)
 logger = logging.getLogger("crawler_logging")
 class UserSpider(WeiboBaseSpider):
     name = 'crawler_all_users'
-
-
     def get_users(self):
-        users = []
+        # users = []
         
         f = open("./data/user_list.txt")
         user_id = f.readlines()
         f.close()
         # random.randint(0, 138)
-        index = random.randint(0, len(user_id))
-        users.append(user_id[index])
-        return user_id[index]
+        # index = random.randint(0, len(user_id))
+        # for i=0; i< len(user_id); i++:
+            # users.append(user_id[i])
+        # users.append(user_id[index])
+        return user_id
 
 
     def start_requests(self):
         self.login()
-        id = self.get_users()
-        users = ['1867231047\n']
+        users = self.get_users()
+        # users = ['1867231047\n']
 
         for id in users:
             # self.current_user = re.sub("\\n", "", id)
@@ -85,11 +85,7 @@ class UserSpider(WeiboBaseSpider):
                     for card in group["card_group"]:
                         if "user" in card:
                             user = card["user"]
-<<<<<<< HEAD
                             # id = user["id"]
-=======
-#                           # id = user["id"]
->>>>>>> 8f48dc7b94cc0cdbc2a65a8d304e6063701d9d40
                             # print(id)
                             # print(user)
                             item = FansItem()

@@ -19,3 +19,4 @@ weibo_crawler/data/
 weibo_crawler/test/
 weibo_crawler/message/
 weibo_crawler/bikes.json
+weibo_crawler/name_id.txt
