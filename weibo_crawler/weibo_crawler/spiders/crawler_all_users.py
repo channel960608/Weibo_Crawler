@@ -186,7 +186,7 @@ class UserSpider(scrapy.Spider):
                     for card in group["card_group"]:
                         if "user" in card:
                             user = card["user"]
-                            id = user["id"]
+#                           # id = user["id"]
                             # print(id)
                             # print(user)
                             item = FansItem()
