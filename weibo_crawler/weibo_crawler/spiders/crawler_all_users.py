@@ -162,8 +162,6 @@ class UserSpider(scrapy.Spider):
             index = 1
             next_url = fans_url + str(index)
             yield scrapy.Request(next_url, headers = self.basicInfo_headers,callback=self.get_fans, meta={"fans_url":fans_url, "index":index})
- 
-
         
         pass
 
