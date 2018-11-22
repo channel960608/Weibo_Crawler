@@ -1,0 +1,112 @@
+2018-11-22 20:39:04 [scrapy.utils.log] INFO: Scrapy 1.5.0 started (bot: weibo_crawler)
+2018-11-22 20:39:04 [scrapy.utils.log] INFO: Versions: lxml 4.1.0.0, libxml2 2.9.4, cssselect 1.0.3, parsel 1.4.0, w3lib 1.19.0, Twisted 17.9.0, Python 3.6.3 |Anaconda, Inc.| (default, Oct  6 2017, 12:04:38) - [GCC 4.2.1 Compatible Clang 4.0.1 (tags/RELEASE_401/final)], pyOpenSSL 17.2.0 (OpenSSL 1.0.2l  25 May 2017), cryptography 2.0.3, Platform Darwin-18.2.0-x86_64-i386-64bit
+2018-11-22 20:39:04 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'weibo_crawler', 'DOWNLOAD_DELAY': 0.25, 'NEWSPIDER_MODULE': 'weibo_crawler.spiders', 'ROBOTSTXT_OBEY': True, 'SPIDER_MODULES': ['weibo_crawler.spiders']}
+2018-11-22 20:39:04 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2018-11-22 20:39:04 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2018-11-22 20:39:04 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2018-11-22 20:39:04 [scrapy.middleware] INFO: Enabled item pipelines:
+['weibo_crawler.pipelines.WeiboCrawlerPipeline']
+2018-11-22 20:39:04 [scrapy.core.engine] INFO: Spider opened
+2018-11-22 20:39:04 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2018-11-22 20:39:04 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6024
+2018-11-22 20:39:04 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): passport.weibo.cn
+2018-11-22 20:39:05 [urllib3.connectionpool] DEBUG: https://passport.weibo.cn:443 "POST /sso/login HTTP/1.1" 200 None
+2018-11-22 20:39:05 [scrapy.core.engine] ERROR: Error while obtaining start requests
+Traceback (most recent call last):
+  File "/Users/channel/anaconda3/lib/python3.6/site-packages/scrapy/core/engine.py", line 127, in _next_request
+    request = next(slot.start_requests)
+  File "/Users/channel/work/Projects/WeiboCrawler_distribute/weibo_crawler/weibo_crawler/spiders/crawl_followings.py", line 42, in start_requests
+    users = self.get_users()
+  File "/Users/channel/work/Projects/WeiboCrawler_distribute/weibo_crawler/weibo_crawler/spiders/crawl_followings.py", line 29, in get_users
+    f = open("./data/user_list.txt")
+FileNotFoundError: [Errno 2] No such file or directory: './data/user_list.txt'
+2018-11-22 20:39:05 [scrapy.core.engine] INFO: Closing spider (finished)
+2018-11-22 20:39:05 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2018, 11, 22, 12, 39, 5, 368025),
+ 'log_count/DEBUG': 3,
+ 'log_count/ERROR': 1,
+ 'log_count/INFO': 7,
+ 'memusage/max': 55988224,
+ 'memusage/startup': 55988224,
+ 'start_time': datetime.datetime(2018, 11, 22, 12, 39, 4, 964133)}
+2018-11-22 20:39:05 [scrapy.core.engine] INFO: Spider closed (finished)
+Loging in...............
+Success!
+2018-11-22 20:40:42 [scrapy.utils.log] INFO: Scrapy 1.5.0 started (bot: weibo_crawler)
+2018-11-22 20:40:42 [scrapy.utils.log] INFO: Versions: lxml 4.1.0.0, libxml2 2.9.4, cssselect 1.0.3, parsel 1.4.0, w3lib 1.19.0, Twisted 17.9.0, Python 3.6.3 |Anaconda, Inc.| (default, Oct  6 2017, 12:04:38) - [GCC 4.2.1 Compatible Clang 4.0.1 (tags/RELEASE_401/final)], pyOpenSSL 17.2.0 (OpenSSL 1.0.2l  25 May 2017), cryptography 2.0.3, Platform Darwin-18.2.0-x86_64-i386-64bit
+2018-11-22 20:40:42 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'weibo_crawler', 'DOWNLOAD_DELAY': 0.25, 'NEWSPIDER_MODULE': 'weibo_crawler.spiders', 'ROBOTSTXT_OBEY': True, 'SPIDER_MODULES': ['weibo_crawler.spiders']}
+2018-11-22 20:40:42 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2018-11-22 20:40:42 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2018-11-22 20:40:42 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2018-11-22 20:40:43 [scrapy.middleware] INFO: Enabled item pipelines:
+['weibo_crawler.pipelines.WeiboCrawlerPipeline']
+2018-11-22 20:40:43 [scrapy.core.engine] INFO: Spider opened
+2018-11-22 20:40:43 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2018-11-22 20:40:43 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6023
+2018-11-22 20:40:43 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): passport.weibo.cn
+2018-11-22 20:40:43 [urllib3.connectionpool] DEBUG: https://passport.weibo.cn:443 "POST /sso/login HTTP/1.1" 200 None
+2018-11-22 20:40:43 [scrapy.core.engine] ERROR: Error while obtaining start requests
+Traceback (most recent call last):
+  File "/Users/channel/anaconda3/lib/python3.6/site-packages/scrapy/core/engine.py", line 127, in _next_request
+    request = next(slot.start_requests)
+  File "/Users/channel/work/Projects/WeiboCrawler_distribute/weibo_crawler/weibo_crawler/spiders/crawl_followings.py", line 42, in start_requests
+    users = self.get_users()
+  File "/Users/channel/work/Projects/WeiboCrawler_distribute/weibo_crawler/weibo_crawler/spiders/crawl_followings.py", line 29, in get_users
+    f = open("./data/user_list.txt")
+FileNotFoundError: [Errno 2] No such file or directory: './data/user_list.txt'
+2018-11-22 20:40:43 [scrapy.core.engine] INFO: Closing spider (finished)
+2018-11-22 20:40:43 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2018, 11, 22, 12, 40, 43, 501192),
+ 'log_count/DEBUG': 3,
+ 'log_count/ERROR': 1,
+ 'log_count/INFO': 7,
+ 'memusage/max': 56020992,
+ 'memusage/startup': 56020992,
+ 'start_time': datetime.datetime(2018, 11, 22, 12, 40, 43, 10262)}
+2018-11-22 20:40:43 [scrapy.core.engine] INFO: Spider closed (finished)
+Loging in...............
+Success!

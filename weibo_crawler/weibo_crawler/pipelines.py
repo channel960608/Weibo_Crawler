@@ -124,7 +124,7 @@ class WeiboCrawlerPipeline(object):
                     ))
                 if "pic" in item:
                     cursor.execute('update weibo_content set pic = "%s" where id = "%s";'%(item["pic"], item["id"]))
-            elif spider.name == "crawler_all_users":
+            elif spider.name == "crawler_all_users" or spider.name == "crawl_followings":
                 sql = 'insert into fans (id, nickname, profile_image_url, profile_url, statuses_count, verified, verified_type, close_blue_v, description, gender, urank, mbtype, followers_count, follow_count, cover_image_phone, desc1, desc2, time) values (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s,%s,%s)'
                 cursor.execute(sql, (item.get("id"),
                     item.get("nickname"),
