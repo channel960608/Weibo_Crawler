@@ -12,7 +12,7 @@
             "module": "scrapy",
             "args": [
                 "crawl",
-                "crawler_all_users",
+                "crawl_followings",
                 "-o",
                 "bikes.json"
             ]
