@@ -11,6 +11,8 @@
 - Scrapy 1.5  
     安装python之后，可以通过 __pip__ 安装
     __pip install Scrapy__  
+- requests  
+    __pip install Requests__  
 
 #### 2018年11月7日更新  
 - 对爬虫耦合性进行处理，基于继承的思想，抽象出了基础爬虫类 __WeiboBaseSpider__  ，登录功能以及相关的一些变量被提取到父类中     
