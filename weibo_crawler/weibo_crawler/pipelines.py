@@ -1,14 +1,3 @@
-    # -*- coding: utf-8 -*-
-
-# Define your item pipelines here
-#
-# Don't forget to add your pipeline to the ITEM_PIPELINES setting
-# See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
-
-# import MySQLdb
-# import MySQLdb.cursors
-
-# MySQL-python does not currently support Python 3, thus we replace it with PyMySQL
 import pymysql
 import pymysql.cursors
 
@@ -43,7 +32,7 @@ class WeiboCrawlerPipeline(object):
             db=settings['MYSQL_DBNAME'],
             user=settings['MYSQL_USER'],
             passwd=settings['MYSQL_PASSWD'],
-            charset='utf8',
+            charset='utf8mb4',
             # cursorclass = MySQLdb.cursors.DictCursor,
             cursorclass = pymysql.cursors.DictCursor,
             use_unicode= True,
@@ -58,9 +47,10 @@ class WeiboCrawlerPipeline(object):
         # return query
 
     def _conditional_insert(self, cursor, item, spider):
+        # cursor.execute("SET NAMES utf8mb4;")
         try:
             if spider.name == "user_info_spider":
-            # 判断id是否已经存在
+            # 判断id是否已经存在5
             # conn.execute("""select id from user where id = "%s";"""%(item["ID"])
                 
                 sql = "select id from user where id = '%s'" % (item["ID"])
@@ -145,6 +135,56 @@ class WeiboCrawlerPipeline(object):
                     item.get("desc2"),
                     item.get("time")
                     ))
+            elif spider.name == "search_by_keyword":
+                sql = "select id from huawei_weibo where id = '%s'" % (item["id"])
+                cursor.execute(sql)
+                results = cursor.fetchone()
+                if results:
+                    cursor.execute(
+                        """update huawei_weibo set reposts_count = "%s", comments_count = "%s", attitudes_count = "%s",\
+                        pending_approval_count = "%s", multi_attitude_1 = "%s", multi_attitude_2 = "%s", multi_attitude_3 = "%s", \
+                        multi_attitude_4 = "%s", multi_attitude_5 = "%s", multi_attitude_6 = "%s" where id = "%s";"""%
+                        (item["reposts_count"],
+                        item["comments_count"],
+                        item["attitudes_count"],
+                        item["pending_approval_count"],
+                        item["multi_attitude_1"],
+                        item["multi_attitude_2"],
+                        item["multi_attitude_3"],
+                        item["multi_attitude_4"],
+                        item["multi_attitude_5"],
+                        item["multi_attitude_6"],
+                        item["id"]
+                        ))
+                else:
+                    cursor.execute(
+                        """insert into huawei_weibo (id, pub_date, text, textLength, source, is_paid, mblog_vip_type, user_id, \
+                        reposts_count, comments_count, attitudes_count, pending_approval_count, multi_attitude_1, multi_attitude_2, \
+                        multi_attitude_3, multi_attitude_4, multi_attitude_5, multi_attitude_6, pic, isLongText, text_long) \
+                        values ("%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", \
+                        "%s", "%s", "%s", "%s", "%s");"""%
+                       (item["id"],
+                        item["pub_date"],
+                        item["text"],
+                        item["textLength"],
+                        item["source"],
+                        item["is_paid"],
+                        item["mblog_vip_type"],
+                        item["user_id"],
+                        item["reposts_count"],
+                        item["comments_count"],
+                        item["attitudes_count"],
+                        item["pending_approval_count"],
+                        item["multi_attitude_1"],
+                        item["multi_attitude_2"],
+                        item["multi_attitude_3"],
+                        item["multi_attitude_4"],
+                        item["multi_attitude_5"],
+                        item["multi_attitude_6"],
+                        item["pic"], 
+                        item["isLongText"],
+                        item["LongText"]
+                        ))
                 # conn.execute
                 # """insert into fans (id, nickname, profile_image_url, profile_url, statuses_count, verified, verified_type, close_blue_v, description, gender, urank, mbtype, followers_count, follow_count, cover_image_phone, desc1, desc2, time) values ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s','%s','%s');"""%
                 #     (item.get("id"),
@@ -171,6 +211,7 @@ class WeiboCrawlerPipeline(object):
         except Exception as e:
             if e.args[0] == 1062:
                 logger.info(e)
+                print(item)
         finally:
             # if conn:
             #     conn.close()
